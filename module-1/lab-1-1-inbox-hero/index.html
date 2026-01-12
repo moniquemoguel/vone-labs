@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VONE Lab 1.1 — Inbox Hero</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="badge">VONE</div>
+        <div class="brandText">
+          <div class="brandTitle">VONE Practice Lab 1.1</div>
+          <div class="brandSub">Inbox Hero: The Professional Rewrite Challenge</div>
+        </div>
+      </div>
+      <div class="topActions">
+        <button class="ghost" id="btnRestartTop" type="button">Restart</button>
+        <button class="primary" id="btnExitTop" type="button">Exit to VONE</button>
+      </div>
+    </header>
+
+    <main class="card">
+      <!-- HOME -->
+      <section class="screen active" id="screenHome">
+        <h1>AI Without Fear — using it like a professional</h1>
+        <p class="lead">
+          Practice a 2026 power-skill: <strong>professional AI communication</strong>.
+          See how prompt quality changes the outcome — and why beginners lose credibility when they trust AI too fast.
+        </p>
+
+        <div class="grid2">
+          <div class="panel">
+            <h3>What you’ll do</h3>
+            <ol>
+              <li>Read a real Belize workplace scenario</li>
+              <li>Choose a prompt level (Weak / Better / Best)</li>
+              <li>Review the AI output</li>
+              <li>Get VONE Coach feedback</li>
+              <li>Score with the VONE rubric</li>
+            </ol>
+          </div>
+
+          <div class="panel">
+            <h3>Quick confidence check (not graded)</h3>
+            <p class="muted">Pick one. You’ll compare how you feel at the end.</p>
+            <div class="chips" id="confidenceChips">
+              <button class="chip" data-value="1" type="button">I feel unsure</button>
+              <button class="chip" data-value="2" type="button">I’m okay</button>
+              <button class="chip" data-value="3" type="button">I feel confident</button>
+            </div>
+            <div class="muted" id="confidenceStatus">Selected: <span>—</span></div>
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <button class="primary big" id="btnStart" type="button">Start Lab</button>
+          <button class="ghost big" id="btnHow" type="button">How it works</button>
+        </div>
+      </section>
+
+      <!-- HOW -->
+      <section class="screen" id="screenHow">
+        <h2>How this lab works</h2>
+        <div class="panel">
+          <p>
+            You’ll act as a <strong>Guest Relations Coordinator</strong> at a Belize resort.
+            A guest is upset about a room delay. Your job is to respond professionally.
+          </p>
+          <ul>
+            <li>Pick a prompt level (Weak / Better / Best)</li>
+            <li>See the output the prompt produces</li>
+            <li>Get coaching feedback and score it using a professional rubric</li>
+          </ul>
+          <div class="note">
+            <strong>Module 1 focus:</strong> AI is useful, but it can sound confident and still be wrong or unhelpful.
+            Professionals verify and refine.
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <button class="primary big" id="btnBeginScenario" type="button">Begin Scenario</button>
+          <button class="ghost big" id="btnBackHome" type="button">Back</button>
+        </div>
+      </section>
+
+      <!-- SCENARIO -->
+      <section class="screen" id="screenScenario">
+        <h2>Scenario</h2>
+        <div class="panel">
+          <p><strong>You work at:</strong> Seabreeze Haven Resort (Belize)</p>
+          <p><strong>Guest message:</strong></p>
+          <blockquote>
+            “I’m honestly disappointed. We arrived at 2pm like we were told, but the room still wasn’t ready.
+            We’ve been waiting over an hour and no one has explained anything. This is wasting our vacation time.”
+          </blockquote>
+
+          <div class="goalBox">
+            <h3>Your goal</h3>
+            <ul>
+              <li>Calm the guest down</li>
+              <li>Take accountability without blaming staff</li>
+              <li>Provide clear next steps + a time expectation</li>
+              <li>Protect the resort’s reputation</li>
+              <li>Sound human (not robotic)</li>
+            </ul>
+          </div>
+
+          <div class="checkpoint">
+            <div class="checkpointTitle">Pause & Try This (not graded)</div>
+            <p class="muted">Write 1 sentence you would say face-to-face.</p>
+            <textarea id="pauseTry" placeholder="Type your sentence here..."></textarea>
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <button class="primary big" id="btnChoosePrompt" type="button">Choose prompt level</button>
+          <button class="ghost big" id="btnBackHow" type="button">Back</button>
+        </div>
+      </section>
+
+      <!-- PROMPT -->
+      <section class="screen" id="screenPrompt">
+        <h2>Choose your prompt level</h2>
+        <p class="muted">Vague prompts create weak outcomes. Choose a level to see the difference.</p>
+
+        <div class="grid3">
+          <div class="promptCard" data-level="weak">
+            <div class="pill danger">Weak</div>
+            <h3>Beginner mistake</h3>
+            <p class="muted">Vague prompt = vague output.</p>
+            <div class="mono small" id="promptWeak"></div>
+            <button class="primary full" type="button">Use Weak Prompt</button>
+          </div>
+
+          <div class="promptCard" data-level="better">
+            <div class="pill warn">Better</div>
+            <h3>Improving</h3>
+            <p class="muted">More context, still missing constraints.</p>
+            <div class="mono small" id="promptBetter"></div>
+            <button class="primary full" type="button">Use Better Prompt</button>
+          </div>
+
+          <div class="promptCard" data-level="best">
+            <div class="pill ok">Best</div>
+            <h3>VONE Standard</h3>
+            <p class="muted">Structured prompt = professional output.</p>
+            <div class="mono small" id="promptBest"></div>
+            <button class="primary full" type="button">Use Best Prompt</button>
+          </div>
+        </div>
+
+        <div class="ctaRow">
+          <button class="ghost big" id="btnBackScenario" type="button">Back</button>
+          <button class="primary big" id="btnExitPrompt" type="button">Exit to VONE</button>
+        </div>
+      </section>
+
+      <!-- OUTPUT -->
+      <section class="screen" id="screenOutput">
+        <div class="outputHeader">
+          <div>
+            <h2>AI Output</h2>
+            <p class="muted" id="levelLabel">Prompt level: —</p>
+          </div>
+          <div class="miniActions">
+            <button class="ghost" id="btnTryAnother" type="button">Try another prompt</button>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="panel">
+            <h3>Chosen Prompt</h3>
+            <div class="mono" id="chosenPrompt"></div>
+          </div>
+          <div class="panel">
+            <h3>Generated Output</h3>
+            <div class="outputBox">
+              <div class="mono" id="generatedOutput"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel coach">
+          <h3>VONE Coach Feedback</h3>
+          <div id="coachFeedback"></div>
+          <div class="note" id="moduleConnection"></div>
+        </div>
+
+        <div class="panel">
+          <h3>Score it using the VONE Professional Rubric</h3>
+          <p class="muted">Practice only. Your score helps you learn “professional-ready.”</p>
+
+          <div class="rubric" id="rubric"></div>
+
+          <div class="scoreRow">
+            <button class="primary" id="btnScore" type="button">Calculate Score</button>
+            <div class="scoreBox">
+              <div class="scoreNum" id="scoreNum">—</div>
+              <div class="scoreMeaning muted" id="scoreMeaning">Select scores and calculate.</div>
+            </div>
+          </div>
+
+          <div class="ctaRow">
+            <button class="ghost big" id="btnRestart" type="button">Restart Lab</button>
+            <button class="primary big" id="btnExit" type="button">Exit to VONE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- END -->
+      <section class="screen" id="screenEnd">
+        <h2>Nice work — you trained professional AI judgment</h2>
+        <p class="lead">
+          The difference between “AI users” and “AI professionals” is simple:
+          <strong>structure, verification, refinement</strong>.
+        </p>
+
+        <div class="panel">
+          <h3>Key takeaways from Module 1</h3>
+          <ul>
+            <li>AI can sound confident and still be wrong or unhelpful</li>
+            <li>Weak prompts create weak outcomes</li>
+            <li>Professional output needs tone + clarity + time expectations</li>
+            <li>You own what you send or submit</li>
+          </ul>
+        </div>
+
+        <div class="ctaRow">
+          <button class="primary big" id="btnEndExit" type="button">Exit to VONE</button>
+          <button class="ghost big" id="btnEndRestart" type="button">Restart</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="muted">VONE Academy • Module 1 Practice • Self-paced</div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
